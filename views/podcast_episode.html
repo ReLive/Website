@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}ReLive &middot; {{ podcast.name }} {{ "%02d"|format(episode.episode) }}{% endblock %}
+{% block head %}
+{{ parent() }}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ReLiveInfo">
+{% if podcast.twitter %}<meta name="twitter:creator" content="@{{ podcast.twitter }}">{% endif %}
+<meta name="twitter:url" content="{{ url_cur() }}">
+<meta name="twitter:title" content="ReLive &middot; {{ podcast.name }} {{ "%02d"|format(episode.episode) }}">
+<meta name="twitter:description" content="{{ episode.description }}">
+<meta name="twitter:image" content="{{ podcast.logo_path }}">
+<!-- if to detect stream -->
+<link href="/bootstrap/mediaelement/mediaelementplayer.min.css" rel="stylesheet" media="screen" type="text/css" />
+<link href="/bootstrap/css/podlove-web-player.css" rel="stylesheet" media="screen" type="text/css" />
+<script src="/bootstrap/js/jquery-1.7.2.min.js"></script>
+<script src="/bootstrap/mediaelement/mediaelement-and-player.min.js"></script>
+<script src="/bootstrap/js/podlove-web-player.js"></script>
+<!-- end if to detect stream -->
+{% endblock %}
+{% block content %}
+<div class="page-header">
+	<h1>ReLive &middot; {{ podcast.name }} {{ "%02d"|format(episode.episode) }} <small>({{ podcast.prefix }}{{ "%02d"|format(episode.episode) }})</small></h1>
+</div>
+<div class="row-fluid">
+	<!-- Sidebar -->
+	<div class="span3">
+		<div class="well sidebar-nav">
+    	<ul class="nav nav-list">
+      	<li class="nav-header">Episoden</li>
+      	{% for ep in episodes %}
+      		<li {% if ep.episode == episode.episode %} class="active" {% endif %}>
+      			<a href="{{ url_rt({'controller': 'podcast',
+      													'action'		: 'episode',
+      													'podcast'		: podcast.prefix,
+      													'id'				: ep.episode
+      												}) 
+      								}}">
+      			{{ podcast.prefix }}{{ "%02d"|format(ep.episode) }}
+      			{% if ep.name %}
+      			– {{ ep.name }}
+      			{% endif %}
+      		</a></li>
+      	{% else %}
+      	<li>Keine Episoden</li>
+      	{% endfor %}
+    	</ul>
+  		</div><!--/.well -->
+	</div><!--/span-->
+	<!-- /Sidebar -->
+	<div class="span9">
+		<div class="row-fluid">
+			<div class="mediaelementjs_player_container">
+				<div class="podlovemeta">
+					<div class="buttonbox"><a class="bigplay font-buttons icon-play bigbuttons" href="#" title="Play Episode"></a>
+						{% if chapters %}
+						<a class="prev font-buttons icon-step-backward smallbuttons" title="previous Chapter" href="#" title="previous Chapter"></a><a class="next font-buttons icon-step-forward smallbuttons" title="next Chapter" href="#" title="next Chapter"></a>
+						{% endif %}
+					</div>
+					{% if podcast.logo_path %}
+					<div class="coverart"><img src="{{ podcast.logo_path }}" alt=""/></div>
+					{% endif %}
+					<h3>{{ episode.name }}</h3>
+					<div class="subtitle">{{ podcast.prefix }}{{ "%02d"|format(episode.episode) }}</div>
+					<div class="infobuttons">
+						{% if episode.description %}
+						<a href="#" class="infowindow" title="more information on the episode"><i class="icon-info-sign"></i></a>
+						{% endif %}
+						{% if chapters %}
+						<a href="#" class="togglechapter" title="show the chapterlist"><i class="icon-th-list"></i></a>
+						{% endif %}
+						{% if episode.mp3_url %}
+						<a href="{{ episode.mp3_url }}" title="open/download file"><i class="icon-download-alt"></i></a>
+						{% endif %}
+						{% if episode.gen_mp3_url %}
+						<a href="{{ episode.gen_mp3_url }}" title="open/download file"><i class="icon-download-alt"></i></a>
+						{% endif %}
+					</div>
+				</div>
+				{% if episode.description %}
+				<div class="summary">{{ episode.description }}</div>
+				{% endif %}
+			<audio id="mainplayer" controls="controls" style="width: auto; height: 30px;">
+				{% if episode.mp3_url %}
+				<source src="{{ episode.mp3_url }}" type="audio/mpeg" />
+				{% else %}
+				{% if episode.stream %}
+				<source src="{{ episode.stream }}" type="application/x-mpegURL" />
+				{% endif %}
+				{% if episode.gen_mp3_url %}
+				<source src="{{ episode.gen_mp3_url }}" type="audio/mpeg" />
+				{% endif %}
+				{% endif %}
+			</audio>
+			<script>jQuery(function() { PODLOVE.web_player('mainplayer'); });</script>
+		</div><!--/row-->
+	</div><!--/span-->
+</div><!--/row-->
+<br>
+{% endblock %}

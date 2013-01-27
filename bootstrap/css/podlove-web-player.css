@@ -1,0 +1,384 @@
+.mediaelementjs_player_container * {
+	font: normal 11px/1.25 helvetica, arial, sans-serif;
+}
+
+.mejs-container.mejs-audio {
+	min-height: 30px;
+}
+
+.mejs-container {
+	margin-top: -1px;
+}
+
+.mediaelementjs_player_container {
+	clear: both;
+	position: relative;
+	padding-bottom: 1.5em;
+}
+
+.mediaelementjs_player_container:after {
+	content: ".";
+	color: #fff;
+	font-size: 1px;
+	height: 1px;
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.mejs-controls div.mejs-horizontal-volume-slider {
+	width: 50px;
+}
+
+.mediaelementjs_player_container .pwp_chapters {
+	/* display: none; /* only show if js works */
+	margin-bottom: 0!important;
+}
+
+.mediaelementjs_player_container table {
+	background: #fcfcfc;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+.mediaelementjs_player_container .pwp_tableend {
+	position: relative;
+	display: block;
+	height: 20px;
+	left: 0px;
+	
+	background: #111;
+	-webkit-border-bottom-left-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	-moz-border-radius-bottomright: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+	width: 40px;
+}
+
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+.mediaelementjs_player_container .pwp_chapters thead,
+.mediaelementjs_player_container .pwp_chapters caption {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.mediaelementjs_player_container .pwp_chapters tr.active {
+	background: #a9cbdf;
+}
+
+.mediaelementjs_player_container .pwp_chapters tr td {
+	padding: 6px;
+	vertical-align: middle;
+}
+
+.mediaelementjs_player_container .pwp_chapters tr td.title {
+	padding-top: 7px;
+}
+
+.mediaelementjs_player_container .pwp_chapters tr td.timecode {
+	text-align: right;
+	min-width: 85px;
+}
+
+.mediaelementjs_player_container .pwp_chapters a.deeplink {
+	background: url(img/deeplink.png) 50% 30% no-repeat;
+	background-size: 85%;
+	float: right;
+	width: 1em;
+	margin-left: 0.5em;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.mediaelementjs_player_container .pwp_chapters a.deeplink:focus,
+.mediaelementjs_player_container .pwp_chapters a.deeplink:hover,
+.mediaelementjs_player_container .pwp_chapters a.deeplink:active {
+	opacity: 0.5;
+}
+
+.podlovemeta {
+	position: relative;
+	overflow: hidden;
+	background: #000;
+	height: 100px;
+	margin-bottom: 0px;
+	-webkit-border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	background: #111;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(50, 50, 50, 0.9)), to(rgba(12, 12, 12, 0.9)));
+	background: -webkit-linear-gradient(top, rgba(50, 50, 50, 0.9), rgba(12, 12, 12, 0.9));
+	background: -moz-linear-gradient(top, rgba(50, 50, 50, 0.9), rgba(12, 12, 12, 0.9));
+	background: -o-linear-gradient(top, rgba(50, 50, 50, 0.9), rgba(12, 12, 12, 0.9));
+	background: -ms-linear-gradient(top, rgba(50, 50, 50, 0.9), rgba(12, 12, 12, 0.9));
+	background: linear-gradient(rgba(50, 50, 50, 0.9), rgba(12, 12, 12, 0.9));
+}
+
+.podlovemeta + .summary + .mejs-container .mejs-playpause-button,
+.podlovemeta + .mejs-container .mejs-playpause-button {
+	width: 10px;
+}
+
+.podlovemeta + .summary + .mejs-container .mejs-playpause-button *,
+.podlovemeta + .mejs-container .mejs-playpause-button * {
+	display: none;
+}
+
+.mejs-controls .mejs-button button:focus { 
+outline: 1px solid transparent!important;
+}
+
+.mejs-duration-container {
+	margin-right: 20px;
+}
+
+.buttonbox {
+	display: inline;
+	width: 85px;
+	height: 100px;
+	float: left;
+}
+
+.podlovemeta .coverart {
+	display: inline;
+}
+
+.podlovemeta .coverart img {
+	border-radius: 12px;
+	height: 80%;
+	top: 8px;
+	position: relative;
+	float: left;
+	margin-right: 10px;
+	box-shadow: 0px 0px 15px 0px #000000; 
+	-webkit-box-shadow: 0px 0px 15px 0px #000000; 
+}
+
+.podlovemeta h3 {
+	clear: none;
+	color: #eee!important;
+	padding: 8px 0;
+	line-height: 1.25;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0!important;
+	text-transform: none;
+	letter-spacing: 0;
+	border: 0;
+}
+
+.podlovemeta .subtitle {
+	margin-right: 60px;
+	font-size: 12px;
+	color: #eee!important;
+}
+
+.podlovemeta .subtitle strong{
+	color: #ccc;
+	font-size: 13px!important;
+}
+
+.podlovemeta + .summary {
+	overflow: hidden;
+	padding: 0px 10px;
+	margin-top: -1px;
+	height: auto;
+	font-size: 12px;
+	line-height: 1.5;
+	color: #000;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	border-left: 1px #111 solid;
+	border-right: 1px #111 solid;
+	background: #ccc;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(150, 150, 150, 0.9)), to(rgba(0, 0, 0, 0.9)));
+	background: -webkit-linear-gradient(top, rgba(220, 220, 220, 0.5), rgba(150, 150, 150, 0.9));
+	background: -moz-linear-gradient(top, rgba(220, 220, 220, 0.5), rgba(150, 150, 150, 0.9));
+	background: -o-linear-gradient(top, rgba(220, 220, 220, 0.5), rgba(150, 150, 150, 0.9));
+	background: -ms-linear-gradient(top, rgba(220, 220, 220, 0.5), rgba(150, 150, 150, 0.9));
+	background: linear-gradient(rgba(220, 220, 220, 0.5), rgba(150, 150, 150, 0.9));
+}
+
+.pwp_chapterbox {
+	display: block;
+	height: auto;
+	border: 1px #111 solid;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.podlovemeta + .summary.active {
+	padding: 20px 10px;
+}
+
+.podlovemeta + .summary + .mejs-container .mejs-playpause-button, .podlovemeta + .mejs-container .mejs-playpause-button {
+	width: 5px;
+}
+
+.infobuttons {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 30px;
+	text-align: center;
+}
+
+.mediaelementjs_player_container .podlovemeta a.font-buttons {
+	font-family: FontAwesome;
+	color: #fff;
+	border-radius: 35px;
+	width: 0px;
+	position: relative;
+	display: block;
+	margin-left: 5px;
+	margin-right: 9px;
+	float: left;
+}
+
+.podlovemeta a.font-buttons.bigbuttons {
+	font-size: 3em;
+	padding: 8px 40px 8px 20px;
+	border: 4px solid white;
+	margin-top: 5px;
+}
+
+.podlovemeta a.font-buttons.smallbuttons {
+	font-size: 1em;
+	padding: 5px 15px 5px 8px;
+	border: 2px solid white;
+	margin-top: 0px;
+}
+
+.podlovemeta a.font-buttons:hover {
+	text-shadow: 0px 0px 15px #FFFFFF;
+	filter: dropshadow(color=#FFFFFF, offx=0, offy=0);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.podlovemeta a.font-buttons.smallbuttons:hover {
+	text-shadow: 0px 0px 5px #FFFFFF;
+	filter: dropshadow(color=#FFFFFF, offx=0, offy=0);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.infobuttons a i {
+	font-family: FontAwesome;
+	color: #fff;
+	font-size: 2em;
+}
+
+.infobuttons a:hover i {
+	text-shadow: 0px 0px 10px #FFFFFF;
+	filter: dropshadow(color=#FFFFFF, offx=0, offy=0);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.podlovemeta a.bigplay::before {
+	content: "\f04b";
+}
+
+.podlovemeta a.bigplay.playing::before {
+	content: "\f04c";
+}
+
+.podlovemeta a.bigplay.playing {
+	padding: 8px 45px 8px 15px;
+}
+
+.mediaelementjs_player_container input {
+	display: none;
+}
+
+.pwp_chapterbox {
+	display: block;
+	overflow: hidden;
+}
+
+.pwp_chapters * {
+	font-size: 13px;
+}
+
+.pwp_chapters .chapterplay {
+	width: 25px;
+	padding-right: 0;
+}
+
+.pwp_chapters .chapterplay a[rel=player] {
+	display: block;
+	border: none;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	width: 25px;
+	height: 25px;
+	background: #ddd;
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	-o-border-radius: 13px;
+	border-radius: 13px;
+	cursor: pointer;
+}
+
+.pwp_chapters .loaded .chapterplay a[rel=player] {
+	background: #000;
+
+}
+
+.pwp_chapters .chapterplay a[rel=player]:focus,
+.pwp_chapters .chapterplay a[rel=player]:hover,
+.pwp_chapters .chapterplay a[rel=player]:active {
+	cursor: pointer;
+}
+
+.pwp_chapters .loaded .chapterplay a[rel=player]:focus,
+.pwp_chapters .loaded .chapterplay a[rel=player]:hover,
+.pwp_chapters .loaded .chapterplay a[rel=player]:active,
+ .pwp_chapters .active .chapterplay a[rel=player] {
+	background: #3a859a;
+	cursor: pointer;
+}
+
+.pwp_chapters .chapterplay a[rel=player] span {
+	display: block;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	position: relative;
+	top: 4px;
+	text-indent: -1000px;
+	margin: 0 0 0 6px;
+	background: transparent url(mediaelement/controls.png) no-repeat 0 0;
+}
+
+.pwp_chapters .active .chapterplay a[rel=player] span {
+	background-position: -1px -16px;
+}
+
+.pwp_chapters .paused .chapterplay a[rel=player] span {
+	background-position: 0 0;
+}

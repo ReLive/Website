@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}ReLive &middot; {{ podcast.name }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+	<h1>ReLive &middot; {{ podcast.name }} <small>({{ podcast.prefix }})</small></h1>
+</div>
+<div class="row-fluid">
+	<!-- Sidebar -->
+	<div class="span3">
+		<div class="well">
+			{% if podcast.logo_path %}
+			<div class="thumbnail">
+				<img src="{{ podcast.logo_path }}" alt="{{ podcast.name }} Logo">
+			</div>
+			{% endif %}
+			<h2>{{ podcast.name }}<br><small>{{ podcast.prefix }}</small></h2>
+			<p>{{ podcast.description }}</p>
+			<hr>
+			<ul class="social icons" style="word-wrap: break-word;">
+				{% if podcast.web %}
+				<li><i class="icon-globe"></i> <a href="{{ podcast.web }}" target="_blank">{{ podcast.web|host }}</a></li>
+				{% endif %}
+				{% if podcast.twitter %}
+				<li><i class="icon-twitter"></i> <a href="http://twitter.com/{{ podcast.twitter }}" target="_blank">@{{ podcast.twitter }}</a></li>
+				{% endif %}
+				{% if podcast.bitlove %}
+				<li><i class="icon-magnet"></i> <a href="{{ podcast.bitlove }}" target="_blank">Bitlove</a></li>
+				{% endif %}
+			</ul>
+		</div><!--/.well -->
+	</div><!--/span-->
+	<!-- /Sidebar -->
+	<div class="span9">
+		<div class="row-fluid">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Episode Name</th>
+						<!--<th>Länge</th>-->
+						<th>Datum</th>
+					</tr>
+      	</thead>
+      	<tbody>
+				{% for episode in episodes %}
+				{% set url_to = url_rt({'controller':'podcast','action': 'episode','podcast':podcast.prefix, 'id': episode.episode}) %}
+				{% set style_to = "display: block; width: 100%; height: 100%;" %}
+				<tr>
+					<td><a href="{{ url_to }}" style="{{ style_to }}">{{ podcast.prefix }}{{ "%02d"|format(episode.episode) }}</a></td>
+					<td><a href="{{ url_to }}" style="{{ style_to }}">{{ episode.name }}</a></td>
+					<!--<td>{# episode.length #}</td>-->
+					<td><a href="{{ url_to }}" style="{{ style_to }}">{{ episode.date|date("jS F Y") }}</a></td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div><!--/row-->
+	</div><!--/span-->
+</div><!--/row-->
+{% endblock %}

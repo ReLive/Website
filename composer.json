@@ -1,0 +1,7 @@
+{
+    "require": {
+        "twig/twig": "1.*",
+        "kunststube/router": "0.2",
+        "php-activerecord/php-activerecord": "dev-master"
+    }
+}
